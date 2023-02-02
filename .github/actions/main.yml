@@ -1,4 +1,6 @@
-on: push
+on: 
+  push:
+  workflow_dispatch:
 name: cleans, build and test app (mobile - android)
 jobs:
   build:
