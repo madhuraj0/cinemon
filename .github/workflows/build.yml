@@ -5,28 +5,26 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    
+
     steps:
-      - uses: actions/checkout@v3
-      - uses: subosito/flutter-action@v2
-        with:
-            flutter-version: '3.0.5'
-            channel: 'stable'
-  
-      - name: build
-        run: |
+    - uses: actions/checkout@v3
+    - uses: subosito/flutter-action@v2
+      with:
+        channel: 'stable' # or: 'beta', 'dev' or 'master'
+    - name: build
+      run: |
           yes | flutter doctor --android-licenses
           cd cinemon
           flutter pub get
           flutter build apk --release
 
-      - name: Push new files to GitHub
-        run: |
+    - name: Push new files to GitHub
+      run: |
           git config --global user.email "indiamadhuraj@gmail.com"
           git config --global user.name "madhuraj0"
           git commit -m "build commit"
           git push https://${GITHUB_ACTOR}:${{ secrets.PAT }}@github.com/${{ github.repository }}.git main --force
-        env:
+      env:
           GITHUB_ACTOR: ${{ github.actor }}
           PAT: ${{ secrets.PAT }}
 
