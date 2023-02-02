@@ -8,23 +8,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
-
-    - name: clean stale build and cache
-      uses: ./action
-      with:
-        args: clean
-
-    - name: install dependencies
-      uses: ./action
-      with:
-        args: pub get
-
-    - name: build apk
-      uses: ./action
-      with:
-        args: build apk --release
+    - uses: subosito/flutter-action@v2
+    with:
+      flutter-version: '3.0.5'
+      channel: 'stable'
+    - run: flutter --version
+    - run: flutter pub get
+    - run: flutter build apk --release
         
-
     - name: Push new files to GitHub
       run: |
         git config --global user.email "indiamadhuraj@gmail.com"
