@@ -15,7 +15,7 @@ jobs:
   
       - name: build
         run: |
-          flutter doctor
+          yes | flutter doctor --android-licenses
           cd cinemon
           flutter pub get
           flutter build apk --release
