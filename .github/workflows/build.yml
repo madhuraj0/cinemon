@@ -16,6 +16,9 @@ jobs:
           cd cinemon
           flutter pub get
           flutter build apk --release
+          mkdir -p apk
+          cp build/app/outputs/flutter-apk/app-release.apk apk/app-release.apk
+          git add . apk/app-release.apk
 
     - name: Push new files to GitHub
       run: |
