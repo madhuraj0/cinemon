@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'cinemon to',
+      title: 'cinemon',
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -96,7 +96,7 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             const Text(
-              'Welcome to cinémon! You have pushed the button this many times:',
+              'Welcome to cinémon!',
             ),
             Text(
               '$_counter',
