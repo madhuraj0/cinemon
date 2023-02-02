@@ -13,7 +13,6 @@ jobs:
         channel: 'stable' # or: 'beta', 'dev' or 'master'
     - name: build
       run: |
-          yes | flutter doctor --android-licenses
           cd cinemon
           flutter pub get
           flutter build apk --release
