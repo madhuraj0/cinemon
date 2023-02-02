@@ -4,8 +4,8 @@ on:
 name: cleans, build and test app (mobile - android)
 jobs:
   build:
-    name: install dependencies
-    runs-on: ubuntu-latest
+    - name: install dependencies
+    - runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
     - uses: subosito/flutter-action@v2
@@ -25,3 +25,4 @@ jobs:
       env:
         GITHUB_ACTOR: ${{ github.actor }}
         PAT: ${{ secrets.PAT }}
+
